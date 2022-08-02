@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{% block content%}
+
+<h1>Forecast</h1>
+<br/>
+
+{% if api %}
+    {% if api == "Error" %}
+        There was an error please try again.
+    {% else %}
+        {{ api.resolvedAddress  }}<br/>
+         {{ api.days.0.datetime  }}&nbsp;&nbsp;
+        Min temp: {{ api.days.0.tempmin  }}&nbsp;&nbsp;
+        Max temp: {{ api.days.0.tempmax  }}&nbsp;&nbsp;
+        Sunrise:    {{ api.days.0.sunrise  }}&nbsp;&nbsp;
+        Sunset      {{ api.days.0.sunset  }}&nbsp;&nbsp;
+        Chance of pecipitation: {{ api.days.0.precipprob  }}<br/>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;{{ api.days.0.description  }}<br/>
+        {{ api.days.1.datetime  }}&nbsp;&nbsp;
+        Min temp: {{ api.days.1.tempmin  }}&nbsp;&nbsp;
+        Max temp: {{ api.days.1.tempmax  }}&nbsp;&nbsp;
+        Sunrise:    {{ api.days.1.sunrise  }}&nbsp;&nbsp;
+        Sunset      {{ api.days.1.sunset  }}&nbsp;&nbsp;
+        Chance of pecipitation: {{ api.days.1.precipprob  }}<br/>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;{{ api.days.0.description  }}<br/>
+
+
+
+
+
+
+
+
+    {% endif %}
+{% endif %}    
+
+{% endblock %}
